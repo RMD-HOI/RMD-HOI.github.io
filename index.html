@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Human-Object Interaction with Vision-Language Model Guided Relative Movement Dynamics">
+  <meta name="keywords" content="Diffusion Policy; Manipulation; Generalization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <title>Nerfies: Deformable Neural Radiance Fields</title> -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+
+  <!-- MathJax -->
+  <script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/file_1.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <title> RMD-HOI </title>
+  <style>
+    .video-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px; 
+    }
+    .video-item {
+      text-align: center; 
+      flex: 1; 
+    }
+    video {
+      width: 100%; 
+      height: auto; 
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> Human-Object Interaction with Vision-Language Model
+            <br>
+            Guided Relative Movement Dynamics</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://rmd-hoi.github.io/">Zekai Deng</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://shiye21.github.io/">Ye Shi</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://rmd-hoi.github.io/">Kaiyang Ji</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://rmd-hoi.github.io/">Lan Xu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://rmd-hoi.github.io/">Shaoli Huang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://faculty.sist.shanghaitech.edu.cn/faculty/wangjingya/">Jingya Wang</a><sup>1,*</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghaitech University,</span>
+            <span class="author-block"><sup>2</sup>Tencent AI Lab</span>
+            <span class="author-block"><sup>*</sup>Corresponding authors</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://rmd-hoi.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://rmd-hoi.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://rmd-hoi.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+                </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--  Main Figure -->
+<section class="hero teaser">
+  <div class="container is-max-desktop" style="max-width: 1100px;">
+    <div class="hero-body">
+      <figure class="image" style="margin-bottom: 30px;">
+        <img src="./static/figure/main_figure.png" class="image-size">
+      </figure>
+      <!-- <h2 class="subtitle has-text-centered"> -->
+      <h2 class="subtitle" style="text-align: left;">
+        Our Relative Movement Dynamics (RMD) architecture enables dynamic object 
+        interaction and long-term multi-task completion
+        based on VLM guidance. RMD enables the automatic construction of 
+        a unified reward function applicable to various reinforcement learning
+        interaction tasks.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!--/ Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            <strong> Human-Object Interaction (HOI) </strong> is vital for advancing simulation, animation, and robotics, enabling the 
+            generation of long-term, physically plausible motions in 3D environments. However, existing methods 
+            often fall short of achieving physics realism and supporting diverse types of interactions. To address 
+            these challenges, this paper introduces a unified Human-Object Interaction framework that provides unified 
+            control over interactions with static scenes and dynamic objects using language commands. The interactions 
+            between human and object parts can always be described as the continuous stable <strong> Relative Movement Dynamics (RMD) </strong>
+            between human and object parts. By leveraging the world knowledge and scene perception capabilities of 
+            <strong> Vision-Language Models (VLMs) </strong>, we translate language commands into RMD diagrams, which are used to guide 
+            goal-conditioned reinforcement learning for sequential interaction with objects. Our framework supports 
+            long-horizon interactions among dynamic, articulated, and static objects. To support the training and 
+            evaluation of our framework, we present a new dataset named Interplay, which includes multi-round task plans 
+            generated by VLMs, covering both static and dynamic HOI tasks. Extensive experiments demonstrate that our 
+            proposed framework can effectively handle a wide range of HOI tasks, showcasing its ability to maintain 
+            long-term, multi-round transitions.                                  
+          </p>
+        </div>
+      </div>
+    </div>
+</section> 
+
+<!-- Paper video. -->
+<section class="section">
+  <div class="container is-max-desktop" style="max-width: 1400px;">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video id="teaser" autoplay muted loop playsinline style ="width: 100%; height: auto;">
+            <source src="./static/video/pre.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--/ Method Overview. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="container is-max-desktop">
+      <h2 class="title is-3">Overview</h2>
+
+          <div >
+            <figure class="image" style="margin-bottom: 30px;">
+              <img src="./static/figure/pipeline.png" class="image-size">
+            </figure>
+
+            <h2 class="subtitle" style="text-align: left; font-size: 17px;">
+              The Relative Movement Dynamics (RMD) characterize the spatiotemporal 
+                relationships between human body parts and object components within 
+                each sub-sequence. To effectively represent RMD, we adopt a bipartite 
+                graph structure where each node representing a human body part is 
+                uniquely connected to a corresponding node representing an object part. 
+                Edges within this graph explicitly encode the relative movement dynamics 
+                between the connected body-object pairs. We employ GPT-4v as our planning 
+                module to decompose high-level tasks into multiple sub-sequences, which 
+                are then executed sequentially by the control policy.
+              </h2>
+            </p>
+          </div>
+        <br/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Policy learning via RMD </h2>
+          <div class="content">
+            <img src="./static/figure/rmd_control.png"
+                 alt="Interpolate start reference image."
+                 width="100%"/>
+            <p>
+              The detailed plan sequences \(\{G_0, G_1, \ldots, G_m\}\) are obtained from the VLM-guided RMD planner.
+    The RMD Manager continuously encodes \(G_i\) into \(g_t\), updates the current stage \(i\), and computes \(r_t\)
+    in terms of \(r_G\) and \(r_S\), which are derived from a randomly sampled motion prior.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Detailed RMD planner </h2>
+          <div class="content">
+            <img src="./static/figure/rmd_plan.png"
+                 alt="Interpolate start reference image."
+                 width="100%"/>
+            <p>
+              Receiving the top-view image of the surrounding scene context along with the 
+              textual instruction, the RMD Planner outputs sequential sub-step plans in a 
+              structured JSON format, enabling direct processing via Python scripts. 
+              To ensure the RMD Planner functions as intended, we utilize different 
+              sections within the prompt, each designed to support a specific functionality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">
+            Qualitative Results in a Single-Task Scenario
+          </h2>
+          <div class="content">
+            <p>
+              We compare our approach with <strong>UniHSI</strong>[Xiao 2024] and 
+              <strong>InterPhys</strong> [Hassan 2023]. <strong>UniHSI</strong> struggles to 
+              effectively control humanoid get-up motions, resulting in 
+              noticeable high-frequency jittering. This occurs because it 
+              models human-object interaction tasks as sequences of discrete, 
+              instantaneous, and independently solved spatial-reaching steps, 
+              neglecting the essential temporal dynamics required to coordinate 
+              movements across body parts. Similarly, <strong>InterPhys</strong> generates unnatural
+               motions during task completion, such as kicking doors or forcibly 
+               opening them with the entire body, primarily due to insufficient 
+               fine-grained spatiotemporal guidance. In contrast, our method 
+               enables stable interactions with objects and supports smooth, 
+               natural transitions between different interaction stages.
+
+            </p>
+            <div class="video-container">
+              <div class="video-item">
+                <video autoplay muted loop>
+                  <source src="./static/video/iccv_demo_oursopen.mp4" type="video/mp4">
+                </video>
+                <h3 style="margin-top: -1px;">Ours(Open)</h3>
+              </div>
+          
+              <div class="video-item">
+                <video autoplay muted loop>
+                  <source src="./static/video/iccv_demo_interphysopen.mp4" type="video/mp4">
+                </video>
+                <h3 style="margin-top: -1px;">InterPhys(Open)</h3>
+              </div>
+            </div>
+
+            <div class="video-container">
+              <div class="video-item">
+                <video autoplay muted loop>
+                  <source src="./static/video/ours_sit.mp4" type="video/mp4">
+                </video>
+                <h3 style="margin-top: -1px;">Ours(Sit)</h3>
+              </div>
+          
+              <div class="video-item">
+                <video autoplay muted loop>
+                  <source src="./static/video/unihsi_sit.mp4" type="video/mp4">
+                </video>
+                <h3 style="margin-top: -1px;">UniHSI(Sit)</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-centered has-text-centered">
+      <h2 class="title is-3 is-centered has-text-centered"></h2>
+      <div id="results-carousel" class="carousel results-carousel">
+
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay  muted loop height="100%">
+          <source src="./static/video/iccv_demo1.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay  muted height="100%">
+          <source src="./static/video/iccv_demo2.mp4"
+          type="video/mp4">
+      </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-centered has-text-centered">
+      <h2 class="title is-3 is-centered has-text-centered">Qualitative Results in a Multi-Task Scenario</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay  muted loop height="100%">
+          <source src="./static/video/iccv_demo1.mp4"
+          type="video/mp4">
+        </video>
+      </div>
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay  muted height="100%">
+          <source src="./static/video/iccv_demo2.mp4"
+          type="video/mp4">
+      </div>
+
+      <div class="column is-centered has-text-centered">
+                <video poster="" id="tree" autoplay  muted height="100%">
+          <source src="./static/video/iccv_demo3.mp4"
+          type="video/mp4">
+      </div>
+  </div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+    <div class="columns is-centered">
+        <div class="content">
+          <p>
+            This website is borrowed from  <a href="https://nerfies.github.io/">Nerfies</a>.
+          </p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
