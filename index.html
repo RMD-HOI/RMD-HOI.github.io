@@ -31,8 +31,8 @@
         rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/bulma-carousel.min.css"> -->
+  <!-- <link rel="stylesheet" href="./static/css/bulma-slider.min.css"> -->
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
@@ -41,8 +41,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
+  <!-- <script src="./static/js/bulma-carousel.min.js"></script> -->
+  <!-- <script src="./static/js/bulma-slider.min.js"></script> -->
   <script src="./static/js/index.js"></script>
   <title> RMD-HOI </title>
   <style>
@@ -59,6 +59,55 @@
       width: 100%; 
       height: auto; 
     }
+    body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 960px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel video {
+            width: 100%;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        /* 左右箭头样式 */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            z-index: 100;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
   </style>
 </head>
 <body>
@@ -118,7 +167,7 @@
                 </a>
               </span>
               <!-- Video Link. -->
-              <!-- <span class="link-block">
+              <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -126,7 +175,7 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span> -->
+              </span>
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://rmd-hoi.github.io/"
@@ -213,10 +262,8 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <video id="teaser" autoplay muted loop playsinline style ="width: 100%; height: auto;">
-            <source src="./static/video/pre.mp4"
-                    type="video/mp4">
-          </video>
+          <iframe src="https://www.youtube.com/embed/Dyr5wsTE48Y?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -365,55 +412,81 @@
   </div>
 </section>
 
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-centered has-text-centered">
-      <h2 class="title is-3 is-centered has-text-centered"></h2>
-      <div id="results-carousel" class="carousel results-carousel">
-
-      <div class="column is-centered has-text-centered">
-                <video poster="" id="tree" autoplay  muted loop height="100%">
-          <source src="./static/video/iccv_demo1.mp4"
-          type="video/mp4">
-        </video>
+      <h2 class="title is-3">示例视频展示</h2>
+      <div id="carousel-1" class="carousel carousel-1"></div>
+      <div id="carousel-2" class="carousel carousel-2">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <video id="tree1" poster="" autoplay muted loop width="100%">
+              <source src="./static/video/iccv_demo1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column has-text-centered">
+            <video id="tree2" poster="" autoplay muted loop width="100%">
+              <source src="./static/video/iccv_demo2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="column has-text-centered">
+            <video id="tree3" poster="" autoplay muted loop width="100%">
+              <source src="./static/video/iccv_demo3.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
       </div>
-      <div class="column is-centered has-text-centered">
-                <video poster="" id="tree" autoplay  muted height="100%">
-          <source src="./static/video/iccv_demo2.mp4"
-          type="video/mp4">
-      </div>
+    </div>
   </div>
-</div>
-</div>
-</section>
+</section> -->
 
 <section class="hero is-small">
   <div class="hero-body">
-    <div class="container is-centered has-text-centered">
-      <h2 class="title is-3 is-centered has-text-centered">Qualitative Results in a Multi-Task Scenario</h2>
-      <div id="results-carousel" class="carousel results-carousel">
+      <div class="container">
+          <h2 class="title is-3">Qualitative Results in a Multi-Task Scenario</h2>
 
-      <div class="column is-centered has-text-centered">
-                <video poster="" id="tree" autoplay  muted loop height="100%">
-          <source src="./static/video/iccv_demo1.mp4"
-          type="video/mp4">
-        </video>
-      </div>
-      <div class="column is-centered has-text-centered">
-                <video poster="" id="tree" autoplay  muted height="100%">
-          <source src="./static/video/iccv_demo2.mp4"
-          type="video/mp4">
-      </div>
+          <div class="carousel-container">
+              <button class="arrow arrow-left" onclick="prevVideo()">&#9664;</button>
+              
+              <div class="carousel" id="videoCarousel">
+                  <video autoplay muted loop>
+                      <source src="./static/video/iccv_demo1.mp4" type="video/mp4">
+                  </video>
+                  <video autoplay muted loop>
+                      <source src="./static/video/iccv_demo2.mp4" type="video/mp4">
+                  </video>
+                  <video autoplay muted loop>
+                      <source src="./static/video/iccv_demo3.mp4" type="video/mp4">
+                  </video>
+              </div>
 
-      <div class="column is-centered has-text-centered">
-                <video poster="" id="tree" autoplay  muted height="100%">
-          <source src="./static/video/iccv_demo3.mp4"
-          type="video/mp4">
+              <button class="arrow arrow-right" onclick="nextVideo()">&#9654;</button>
+          </div>
       </div>
   </div>
-</div>
-</div>
 </section>
+
+<script>
+  let currentIndex = 0;
+  const videos = document.querySelectorAll("#videoCarousel video");
+  const carousel = document.getElementById("videoCarousel");
+
+  function updateCarousel() {
+      const offset = -currentIndex * 100;
+      carousel.style.transform = `translateX(${offset}%)`;
+  }
+
+  function nextVideo() {
+      currentIndex = (currentIndex + 1) % videos.length;
+      updateCarousel();
+  }
+
+  function prevVideo() {
+      currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+      updateCarousel();
+  }
+</script>
+
 
 <footer class="footer">
     <div class="columns is-centered">
